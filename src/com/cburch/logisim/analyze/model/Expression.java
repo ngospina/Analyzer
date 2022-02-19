@@ -81,13 +81,14 @@ public abstract class Expression {
 			}
 			
 			public void visitNot(Expression a) {
-				text.append("~");
+				//text.append("~");
 				if (a.getPrecedence() < NOT_LEVEL) {
 					text.append("("); a.visit(this); text.append(")");
 				} else {
 					a.visit(this);
 				}
-			}
+				text.append("'");
+                        }
 			
 			public void visitVariable(String name) {
 				text.append(name);
